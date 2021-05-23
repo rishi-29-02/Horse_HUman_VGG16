@@ -42,8 +42,8 @@ from keras.applications.vgg16 import VGG16, preprocess_input, decode_predictions
 app = Flask(__name__)
 run_with_ngrok(app)
 
-image_folder = os.path.join('static', 'images')
-app.config["UPLOAD_FOLDER"] = image_folder
+#image_folder = os.path.join('static', 'images')
+#app.config["UPLOAD_FOLDER"] = image_folder
 
 model = VGG16()
 
@@ -69,7 +69,7 @@ def predict():
 
   pic = os.path.join(app.config['UPLOAD_FOLDER'], imagefile.filename)
 
-  return render_template('index.html', user_image=pic, prediction_text=classification)
+  return render_template('index.html', prediction_text=classification)
 
 app.run()
 
